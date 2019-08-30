@@ -1,3 +1,6 @@
 #Guest List Generator
 
-Helps to keep track of a guest list for an event, and generates helpful counts for catering purposes etc
+What will it be useful for?
+* Creating an initial list of people to attend
+* Tracking who has been sent an invite, who has responded, what the response was
+* Counting number of attendees, including splitting between adults and children
