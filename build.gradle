@@ -15,5 +15,7 @@ repositories {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile "org.eclipse.jetty:jetty-server:9.4.20.v20190813"
+    compile "org.eclipse.jetty:jetty-servlet:9.4.20.v20190813"
+    testCompile "junit:junit:4.11"
 }
