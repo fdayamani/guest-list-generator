@@ -1,10 +1,10 @@
 import React from 'react';
+import nanoajax from 'nanoajax';
 
 class GuestAdder extends React.Component {
     constructor(props) {
         super(props);
         this.state = {guestName: ''};
-
         this.handleChange = this.handleChange.bind(this);
         this.handleAddGuest = this.handleAddGuest.bind(this);
     }
@@ -14,7 +14,19 @@ class GuestAdder extends React.Component {
     }
 
     handleAddGuest(event) {
-        console.log('A guest was added: ' + this.state.guestName) ;
+        nanoajax.ajax({
+            url: "/api/guestList",
+            method: 'POST',
+            body: {name: this.state.guestName}
+        },
+        function(code, responseTest) {
+            if (code >=200 && code < 300) {
+                console.log('A guest was added: ' + this.state.guestName) ;
+
+            } else {
+
+            }
+        });
     }
 
     render() {
