@@ -13,12 +13,12 @@ import java.util.EnumSet;
 import java.util.List;
 
 public class App {
-    private final List<Guest> guestList;
+    private final List<GuestListResource.Guest> guestList;
     private final GuestListResource guestListResource;
     private final Server server;
 
     public App() {
-        guestList = new ArrayList<Guest>();
+        guestList = new ArrayList<GuestListResource.Guest>();
         guestListResource = new GuestListResource(guestList);
 
         server = new Server(8080);

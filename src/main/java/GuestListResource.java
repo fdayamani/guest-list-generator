@@ -14,8 +14,32 @@ public final class GuestListResource {
 
     @POST
     @Consumes("application/json")
-    public void add(String guest) {
-        guestList.add(new Guest(guest));
-        System.out.println(guest);
+    public void add(String guestName) {
+        guestList.add(new Guest(guestName));
     }
+
+    public static class Guest {
+        public final String name;
+
+        public Guest(String name) {
+            this.name = name;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+
+            Guest guest = (Guest) o;
+
+            return name != null ? name.equals(guest.name) : guest.name == null;
+
+        }
+
+        @Override
+        public int hashCode() {
+            return name != null ? name.hashCode() : 0;
+        }
+    }
+
 }
