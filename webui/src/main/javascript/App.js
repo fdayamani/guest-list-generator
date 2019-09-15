@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import GuestAdder from './GuestAdder'
+import GuestList from './GuestList'
 
 class App extends React.Component {
 
@@ -9,22 +10,12 @@ class App extends React.Component {
         this.state = { apiResponse: "" };
     }
 
-    callAPI() {
-        fetch("http://localhost:9000/testAPI")
-            .then(res => res.text())
-            .then(res => this.setState({ apiResponse: res }));
-    }
-
-    componentWillMount() {
-        this.callAPI();
-    }
-
   render() {
   return (
   <div className="App">
       <header className="App-header">
         <GuestAdder/>
-        <p className="App-intro">{this.state.apiResponse}</p>
+      <GuestList/>
       </header>
     </div>
     );
