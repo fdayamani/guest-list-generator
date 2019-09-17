@@ -1,9 +1,12 @@
 var express = require('express');
 var router = express.Router();
 
-var guests = [{name: 'Alice'}, {name: 'Bob'}, {name:'Charlie'}];
+var guestList = require('../public/javascripts/guestList');
+var guests;
+
 
 router.get('/', function(req, res, next) {
+    guests = guestList.allGuests()
     res.status(200).json(guests);
 });
 

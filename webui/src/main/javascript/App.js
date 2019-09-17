@@ -13,10 +13,10 @@ class App extends React.Component {
   render() {
   return (
   <div className="App">
-      <header className="App-header">
+      <div className="App-header">
         <GuestAdder/>
-      <GuestList/>
-      </header>
+        <GuestList/>
+      </div>
     </div>
     );
   }
