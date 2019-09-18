@@ -13,7 +13,6 @@ class GuestAdder extends React.Component {
     }
 
     handleAddGuest(event) {
-        event.preventDefault();
         fetch("http://localhost:9000/addGuest", {
                 method: "post",
                 headers: {"Content-Type": "application/json"},

@@ -8,14 +8,10 @@ class GuestList extends React.Component {
         this.state = { guestList: [] };
     }
 
-    callAPI() {
-        fetch("http://localhost:9000/guestList")
-            .then(res => res.json())
-            .then(res => this.setState({ guestList: res }));
-    }
-
     componentDidMount() {
-        this.callAPI();
+        fetch("http://localhost:9000/guestList")
+              .then(res => res.json())
+              .then(res => this.setState({ guestList: res }));
     }
 
   render() {
