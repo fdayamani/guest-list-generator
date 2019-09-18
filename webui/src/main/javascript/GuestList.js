@@ -25,7 +25,7 @@ class GuestList extends React.Component {
 
   render() {
       return (
-          <div className="GuestList" style = {{textAlign: "center", padding: "10px", width: "max-content"}}>
+          <div className="GuestList" style = {{textAlign: "left", padding: "10px", width: "max-content"}}>
             {this.state.guestList.map((guest) => <Guest name={guest.name}/>)}
           </div>
       );
