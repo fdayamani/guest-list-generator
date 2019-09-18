@@ -3,26 +3,31 @@ import React from 'react';
 class GuestAdder extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {guestName: ''};
+        this.state = {name: ''};
         this.handleChange = this.handleChange.bind(this);
         this.handleAddGuest = this.handleAddGuest.bind(this);
     }
 
     handleChange(event) {
-        this.setState({guestName: event.target.value});
+        this.setState({name: event.target.value});
     }
 
     handleAddGuest(event) {
-
+        event.preventDefault();
+        fetch("http://localhost:9000/addGuest", {
+                method: "post",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(this.state)}
+            );
     }
 
     render() {
         return (
-            <form onSubmit = {this.handleAddGuest}>
+            <form onSubmit={(event) => this.handleAddGuest(event)}>
                 <label>
-                    <input type="text" name="name" value={this.state.value} onChange = {this.handleChange}/>
+                    <input type="text" name="name" value={this.state.value} onChange = {(event) => this.handleChange(event)}/>
                 </label>
-                    <input type="submit" value="Add Guest" />
+                    <input type="submit" value="Add Guest"/>
             </form>
         );
     }

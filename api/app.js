@@ -6,7 +6,7 @@ var logger = require('morgan');
 var cors = require("cors");
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var guestAdderRouter = require('./routes/guestAdderResource');
 var guestListRouter = require("./routes/guestListResource");
 
 var app = express();
@@ -23,7 +23,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/addGuest', guestAdderRouter);
 app.use("/guestList", guestListRouter);
 
 // catch 404 and forward to error handler
