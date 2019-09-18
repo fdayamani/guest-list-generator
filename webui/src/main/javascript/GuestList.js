@@ -8,10 +8,19 @@ class GuestList extends React.Component {
         this.state = { guestList: [] };
     }
 
-    componentDidMount() {
+    fetchGuests() {
         fetch("http://localhost:9000/guestList")
               .then(res => res.json())
               .then(res => this.setState({ guestList: res }));
+    }
+
+    componentDidMount() {
+        this.fetchGuests();
+        this.timer = setInterval(() => this.fetchGuests(), 1000)
+    }
+
+    componentWillUnmount() {
+        this.timer = null;
     }
 
   render() {

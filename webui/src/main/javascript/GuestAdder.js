@@ -13,6 +13,7 @@ class GuestAdder extends React.Component {
     }
 
     handleAddGuest(event) {
+        event.preventDefault();
         fetch("http://localhost:9000/addGuest", {
                 method: "post",
                 headers: {"Content-Type": "application/json"},
@@ -24,7 +25,7 @@ class GuestAdder extends React.Component {
         return (
             <form onSubmit={(event) => this.handleAddGuest(event)}>
                 <label>
-                    <input type="text" name="name" value={this.state.value} onChange = {(event) => this.handleChange(event)}/>
+                    <input type="text" name="name" onChange = {(event) => this.handleChange(event)}/>
                 </label>
                     <input type="submit" value="Add Guest"/>
             </form>
