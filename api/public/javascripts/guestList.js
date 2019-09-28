@@ -5,7 +5,7 @@ var guestList = {
     allGuests: () => {
         return guests;
     },
-    addGuest: (guest) => {
+    add: (guest) => {
         guests.push({name: guest.name})
     }
 }
